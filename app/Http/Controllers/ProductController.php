@@ -1,35 +1,36 @@
 <?php
 
-use Illuminate\Database\Migrations\Migration;
-use Illuminate\Database\Schema\Blueprint;
-use Illuminate\Support\Facades\Schema;
+namespace App\Http\Controllers;
 
-class CreateProductsTable extends Migration
+use App\Models\Product;
+use Illuminate\Http\Request;
+
+class ProductController extends Controller
 {
-    /**
-     * Run the migrations.
-     *
-     * @return void
-     */
-    public function up()
+    public function index()
     {
-        Schema::create('products', function (Blueprint $table) {
-            $table->id('product_id'); // Primary key with a custom name
-            $table->string('name'); // Name of the product
-            $table->text('description'); // Description of the product
-            $table->decimal('price', 8, 2); // Price of the product
-            $table->integer('quantity')->default(0); // Quantity of the product
-            $table->timestamps(); // Created at and updated at timestamps
-        });
+        // Assuming you have some logic to fetch products from the database
+        $products = Product::all();
+        return view('product.index', compact('products'));
     }
 
-    /**
-     * Reverse the migrations.
-     *
-     * @return void
-     */
-    public function down()
+    public function create()
     {
-        Schema::dropIfExists('products');
+        return view('product.create');
+    }
+
+    public function store(Request $request)
+    {
+        $data = $request->validate([
+            'name' => 'required',
+            'qty' => 'required|numeric',
+            'price' => 'required|regex:/^\d+(\.\d{1,2})?$/', // Validating decimal with up to 2 decimal places
+        ]);
+
+        // Create a new product instance
+        $newProduct = Products::create($data);
+
+        // Redirect to the product index page
+        return redirect()->route('product.index');
     }
 }

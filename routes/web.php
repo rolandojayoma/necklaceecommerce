@@ -6,6 +6,7 @@ use App\Http\Controllers\AuthController;
 use App\Http\Controllers\WelcomeController;
 use App\Http\Controllers\UserController;
 use App\Http\Controllers\AdminController;
+use App\Http\Controllers\ProductController;
 
 Route::get('/', function () {
     return view('welcome');
@@ -26,5 +27,8 @@ Route::get('/gold', [CrossController::class, 'gold']);
 Route::get('/cart_double', [CrossController::class, 'cartDouble']);
 Route::get('/cart_linkup', [CrossController::class, 'cartLinkup']);
 Route::get('/cart_gold', [CrossController::class, 'cartGold']);
-Route::get('/admin', [AdminController::class, 'admin']);    
+Route::get('/admin', [AdminController::class, 'admin'])->name('adminpage');    
 Route::get('/user', [UserController::class, 'user']);
+Route::get('/product', [ProductController::class, 'index'])->name('product.index');
+Route::get('/create', [ProductController::class, 'create'])->name('product.create');
+Route::post('/product', [ProductController::class, 'store'])->name('product.store');

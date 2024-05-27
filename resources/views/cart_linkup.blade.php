@@ -59,12 +59,13 @@ LinkUp Silver Necklace</p>
             </tbody>
         </table>
         <div class="cart-footer">
-            <a href="{{url('welcome')}}"><button class="continue-shopping-btn">&lt; Continue Shopping</button></a>
-            <div class="total-price">
-                Total $ 300
-            </div>
-            <button class="checkout-btn">Checkout &gt;</button>
-        </div>
+    <a href="{{url('welcome')}}"><button class="continue-shopping-btn">&lt; Continue Shopping</button></a>
+    <div class="total-price">
+        Total $ 300
+    </div>
+    <button class="checkout-btn">Checkout &gt;</button>
+</div>
+
     </div>
 </body>
 </html>

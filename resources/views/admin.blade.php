@@ -243,7 +243,7 @@
                     <a href="#" class="nav__item-link">Dashboard</a>
                 </li>
                 <li class="nav__list-item">
-                    <a href="#" class="nav__item-link">Products</a>
+                    <a href="{{ route('admin\add_product') }}" class="nav__item-link">Products</a>
                 </li>
                 <li class="nav__list-item">
                     <a href="#" class="nav__item-link">Statuses</a>
@@ -284,19 +284,14 @@
             </nav>
             <main class="content">
                 <h1>Dashboard</h1>
-                <h2>Subheading</h2>
-                <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Quae maiores hic, magnam deserunt ex voluptatum, ducimus consectetur et aut nobis quod maxime odit itaque natus ipsam quisquam quo inventore laudantium.</p>
-                <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Assumenda voluptates fuga debitis explicabo voluptatum deleniti?</p>
+                <h2>Users</h2>
                 <table>
                     <thead>
                         <tr>
                             <th>Name</th>
                             <th>Email</th>
                             <th>Address</th>
-                            <th>City</th>
-                            <th>State</th>
-                            <th>Zip</th>
-                            <th>Actions</th>
+                            <th>Phone</th>
                         </tr>
                     </thead>
                     <tbody>

@@ -46,9 +46,15 @@ class AuthController extends Controller
         ];
 
         if (Auth::attempt($credentials)) {
+            if (Auth::check() && Auth::user()->email === 'admin@gmail.com') 
+            {
+                 return redirect()->route('adminpage');
+                }
             return redirect('/user');
         }
+       
 
         return view('auth.login');
     }
+
 }
